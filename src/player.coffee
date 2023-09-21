@@ -71,6 +71,7 @@ Namespace('WordSearch').Engine = do ->
 		document.addEventListener('mousemove', _mouseMoveEvent, false)
 		document.addEventListener('MSPointerUp', _mouseUpEvent, false)
 		document.addEventListener('MSPointerMove', _mouseMoveEvent, false)
+		document.addEventListener('keydown', _keyboardEvent, false)
 		document.onselectstart = (e) -> false
 
 		document.getElementById('checkbtn').addEventListener 'click', _confirmDone
@@ -193,6 +194,17 @@ Namespace('WordSearch').Engine = do ->
 		if e.touches
 			e = e.touches[0]
 		_clickEnd = x: e.clientX, y: e.clientY
+		WordSearch.Puzzle.drawBoard(_context, _qset, _clickStart, _clickEnd, _isMouseDown)
+
+	_keyboardEvent = (e) ->
+		if (e.key == "a" || e.key == "A")
+			_clickEnd.x--;
+		else if (e.key == "d" || e.key == "D")
+			_clickEnd.x++;
+		else if (e.key == "w" || e.key == "W")
+			_clickEnd.y++;
+		else if (e.key == "s" || e.key == "S")
+			_clickEnd.y--;
 		WordSearch.Puzzle.drawBoard(_context, _qset, _clickStart, _clickEnd, _isMouseDown)
 
 	# show the "are you done" warning

@@ -4,12 +4,12 @@
     "cleanName": "word-search"
   },
   "dependencies": {
-    "materia-widget-development-kit": "^2.5.0"
+    "materia-widget-development-kit": "../../MWDK4"
   },
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack -p",
-    "build-dev": "webpack",
+    "start": "mwdk-start",
+    "build": "mwdk-build-prod",
+    "build-dev": "mwdk-build-dev",
     "test": "echo 'tests not implemented'",
     "test-ci": "echo 'tests not implemented'"
   },

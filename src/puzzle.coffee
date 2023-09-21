@@ -251,6 +251,7 @@ Namespace('WordSearch').Puzzle = do ->
 				y++
 
 		if _clickEnd and vector.x < _qset.options.puzzleWidth and vector.y <= _qset.options.puzzleHeight and vector.x >= 0 and vector.y > 0
+			console.log("hi")
 			_circleWord(vector.x, vector.y, vector.x, vector.y)
 
 		# circle completed words
